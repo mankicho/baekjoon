@@ -1,4 +1,4 @@
-package set;
+package union_find;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
