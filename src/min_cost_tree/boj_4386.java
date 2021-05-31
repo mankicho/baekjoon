@@ -63,7 +63,7 @@ public class boj_4386 {
         double x = x2 - x1;
         double y = y2 - y1;
 
-        return (Math.round(Math.sqrt(x * x + y * y)* 100) ) / 100.0;
+        return (Math.round(Math.sqrt(x * x + y * y) * 100)) / 100.0;
     }
 
     static void kruskal(List<double[]> edges, double[][] result) {
