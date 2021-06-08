@@ -3,7 +3,7 @@ package dp;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class dp_2156 {
+public class boj_2156 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
