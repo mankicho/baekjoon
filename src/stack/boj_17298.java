@@ -1,55 +1,57 @@
 package stack;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Stack;
 
 public class boj_17298 {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        String firstLine = br.readLine();
+        String secondLine = br.readLine();
 
+        int N = Integer.parseInt(firstLine);
+        String[] split = secondLine.split(" ");
+        int[] arr = Arrays.stream(split).mapToInt(Integer::parseInt).toArray();
+
+        int[] result = new int[N];
+        result[N - 1] = -1;
         Stack<Integer> stack = new Stack<>();
+
         for (int i = 0; i < arr.length; i++) {
-            stack.add(arr[i]);
+            int value = arr[i];
+            int value2 = arr[i + 1];
+
+            if (value2 > value) {
+                result[i] = value2;
+                continue;
+            }
+
+            // 2 1 0
+            while (!stack.isEmpty()) {
+                if (value > arr[stack.peek()]) {
+                    int idx = stack.pop();
+                    result[idx] = value;
+                } else {
+                    break;
+                }
+            }
+            stack.push(i);
         }
 
-        Stack<Integer> tmpStack = new Stack<>();
-
-        int max = -1;
-        StringBuilder result = new StringBuilder();
         while (!stack.isEmpty()) {
-            int pop = stack.pop();
-
-            if (tmpStack.isEmpty()) {
-                result.append(-1).append(" ");
-                tmpStack.add(pop);
+            int popIndex = stack.pop();
+            if (arr[popIndex] < arr[N - 1]) {
+                result[popIndex] = arr[N - 1];
             } else {
-                boolean b = false;
-                while (!tmpStack.isEmpty()) {
-                    int tmpPeek = tmpStack.peek();
-                    if (tmpPeek > pop) {
-                        b = true;
-                        result.append(tmpPeek).append(" ");
-                        break;
-                    }
-                    tmpStack.pop();
-                }
-                if (!b) {
-                    result.append("-1").append(" ");
-                }
-                tmpStack.add(pop);
+                result[popIndex] = -1;
             }
         }
-        String[] split = result.toString().split(" ");
 
-        result = new StringBuilder();
-
-        for(int i=split.length-1;i>=0;i--){
-            result.append(split[i]).append(" ");
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + " ");
         }
-        System.out.println(result.toString());
     }
 }
