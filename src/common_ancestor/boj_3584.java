@@ -18,7 +18,7 @@ public class boj_3584 {
             List<List<Integer>> childsList = new ArrayList<>();
             for (int tmp = 0; tmp <= n; tmp++) {
                 childsList.add(new ArrayList<>());
-                
+
             }
             int[] levels = new int[n + 1];
 
