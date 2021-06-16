@@ -12,6 +12,7 @@ public class boj_2638 {
     static int[][] open;
     static List<int[]> tmpList = new ArrayList<>();
 
+    
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
