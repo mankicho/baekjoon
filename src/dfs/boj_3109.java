@@ -41,7 +41,9 @@ public class boj_3109 {
             {-1, 1}, {0, 1}, {1, 1}
     };
 
+    // 배열이니까 힙 영역에 들어있잖아
     static void dfs(char[][] chrs, int row, int col, boolean[][] visited) {
+
 
         if (visited[row][col]) {
             return;
@@ -63,6 +65,7 @@ public class boj_3109 {
 
             int endCol = col + dir[1];
 
+            // 범위를 벗어나면 안한다
             if (!((endRow >= 0 && endRow < chrs.length) && (endCol >= 0 && endCol < chrs[0].length))
                     || chrs[endRow][endCol] == 'x') {
                 continue;
