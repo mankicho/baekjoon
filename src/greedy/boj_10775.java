@@ -50,12 +50,12 @@ public class boj_10775 {
     }
 
     static void union(int[] roots, int a, int b) {
-        a = uFind(roots, a);
-        b = uFind(roots, b);
+        a = uFind(roots, a); // 10
+        b = uFind(roots, b); // 5
 
         if (a != b) {
             if (a > b) {
-                roots[a] = b;
+                roots[a] = b; // roots[10] = 5;
             } else {
                 roots[b] = a;
             }
