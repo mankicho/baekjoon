@@ -63,8 +63,6 @@ public class boj_14003 {
                 break;
             }
         }
-//        System.out.println(Arrays.toString(replaceArr));
-//        System.out.println(list);
         System.out.println(min == 1 ? list.size() - 1 : list.size());
         StringBuilder result = new StringBuilder();
         for (int i = min == 1 ? 1 : 0; i < list.size(); i++) {
