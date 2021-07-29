@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 public class boj_6549 {
 
+    
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
