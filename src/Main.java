@@ -2,68 +2,41 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Main {
+class Main {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int m = Integer.parseInt(br.readLine());
 
-        int[] connectArr = new int[n + 1];
-
-        for (int i = 1; i <= n; i++) {
-            connectArr[i] = i;
-        }
-        for (int i = 1; i <= n; i++) {
-
-            int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-
-            for (int j = 0; j < arr.length; j++) {
-                if (arr[j] == 1) {
-                    int end = j;
-
-                    union(connectArr, i, j);
-                }
-            }
-
-
-        }
         int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        int result = find(connectArr, arr[0]);
-        boolean isSame = true;
-        for (int i = 1; i < arr.length; i++) {
-            if (result != find(connectArr, arr[i])) {
-                isSame = false;
-                break;
+        int n = arr[0];
+        int l = arr[1];
+        int r = arr[2];
+
+        long[][] dp = new long[n][n + 2];
+
+        for (int i = 1; i < n; i++) {
+            dp[0][i] = 1;
+            dp[1][i] = n - i;
+        }
+
+        for (int i = 2; i < n; i++) {
+            for (int j = 1; j < n; j++) {
+                if (i + j <= n) {
+                    for (int k = j + 1; k < n; k++) {
+                        dp[i][j] += dp[i - 1][k];
+                    }
+                }
             }
         }
 
-        if (isSame) {
-            System.out.println("YES");
-        } else {
-            System.out.println("NO");
-        }
-    }
-
-    static int find(int[] connectArr, int num) {
-        if (connectArr[num] == num) {
-            return num;
+        for (long[] ints : dp) {
+            System.out.println(Arrays.toString(ints));
         }
 
-        connectArr[num] = find(connectArr, connectArr[num]);
-        return connectArr[num];
+        System.out.println(((dp[l - 1][1] % 1000000007L) *
+                (dp[r - 1][l + 1] == 0 ? 1 : (dp[r - 1][l + 1] % 1000000007))) % 1000000007);
     }
 
-    static void union(int[] arr, int a, int b) {
-        a = find(arr, a);
-        b = find(arr, b);
 
-        if (a != b) {
-            if (a < b) {
-                arr[b] = a;
-            } else {
-                arr[a] = b;
-            }
-        }
-    }
 }
