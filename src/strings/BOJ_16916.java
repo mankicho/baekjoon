@@ -7,6 +7,7 @@ public class BOJ_16916 {
 
     static int[] pi;
 
+    
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
