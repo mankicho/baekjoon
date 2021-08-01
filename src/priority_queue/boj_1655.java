@@ -17,14 +17,14 @@ public class boj_1655 {
         for (int i = 0; i < n; i++) {
             int val = Integer.parseInt(br.readLine());
 
-            if(i%2 ==0){
+            if (i % 2 == 0) {
                 bigQueue.add(val);
-            }else{
+            } else {
                 smallQueue.add(val);
             }
 
-            if(!smallQueue.isEmpty() && !bigQueue.isEmpty()){
-                if(bigQueue.peek() > smallQueue.peek()){
+            if (!smallQueue.isEmpty() && !bigQueue.isEmpty()) {
+                if (bigQueue.peek() > smallQueue.peek()) {
                     smallQueue.add(bigQueue.poll());
                     bigQueue.add(smallQueue.poll());
                 }

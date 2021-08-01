@@ -3,9 +3,7 @@ package priority_queue;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 class boj_11000 {
 
@@ -25,17 +23,17 @@ class boj_11000 {
             return o1[0] - o2[0];
         });
 
-        PriorityQueue<Integer> pq= new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (int i = 0; i < schedules.length; i++) {
             int[] sche = schedules[i];
 
             int s = sche[0];
             int t = sche[1];
 
-            if(pq.isEmpty()){
+            if (pq.isEmpty()) {
                 pq.add(t);
-            }else{
-                if(s >= pq.peek()){
+            } else {
+                if (s >= pq.peek()) {
                     pq.poll();
                 }
                 pq.add(t);
