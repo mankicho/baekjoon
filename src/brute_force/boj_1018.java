@@ -4,13 +4,11 @@ package brute_force;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class boj_1018 {
+
     public static void main(String[] args) throws IOException {
+
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //
 //        String line = br.readLine();
@@ -43,14 +41,14 @@ public class boj_1018 {
 
         int num = 665;
 
-        int answer =0 ;
-        while(answer < N){
+        int answer = 0;
+        while (answer < N) {
 
             num++;
 
-            String str = num+"";
+            String str = num + "";
 
-            if(str.contains("666")){
+            if (str.contains("666")) {
                 answer++;
             }
         }
@@ -59,7 +57,6 @@ public class boj_1018 {
     }
 
 }
-
 
 
 //public class boj_1018 {
