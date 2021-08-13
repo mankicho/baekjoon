@@ -61,4 +61,3 @@ public class BOJ_17404 {
         System.out.println(min);
     }
 }
-
