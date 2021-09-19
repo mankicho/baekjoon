@@ -16,7 +16,7 @@ public class BOJ_14890 {
         int l = arr[1];
         int[][] map = new int[n][n];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <  n; i++) {
             map[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         }
 
